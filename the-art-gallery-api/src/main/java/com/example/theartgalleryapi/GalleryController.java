@@ -23,8 +23,9 @@ public class GalleryController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/images")
-	public void addImage(@RequestBody Image image) {
+	public String addImage(@RequestBody Image image) {
 		galleryService.addImage(image);
+		return "Picture posted to the Gallery";
 	}
 
 }
