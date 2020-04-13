@@ -41,7 +41,8 @@ class TheArtGallery extends Component {
           <Header>
             <h1>The Art Gallery</h1>
             <p>
-              View our hand-picked artistic pictures from all over the world.
+              A beautiful collection of artistic pictures from all over the
+              world.
             </p>
             <p>
               <a className="btn btn-primary btn-lg" href="/">
