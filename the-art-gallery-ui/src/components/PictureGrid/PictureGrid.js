@@ -7,8 +7,8 @@ const PictureGrid = (props) => {
     return (
       <PictureThumbnail
         key={imageObject.id}
-        imageSource={imageObject.src}
-        imageCaption={imageObject.caption}
+        imageSource={imageObject.imageSource}
+        imageCaption={imageObject.imageCaption}
       />
     );
   });
