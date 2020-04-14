@@ -1,12 +1,15 @@
 import React from "react";
 import "./App.css";
 import TheArtGallery from "./containers/TheArtGallery";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <TheArtGallery />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <TheArtGallery />
+      </div>
+    </BrowserRouter>
   );
 }
 
