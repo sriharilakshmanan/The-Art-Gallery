@@ -30,7 +30,7 @@ class PostPicture extends Component {
     let redirect = null;
     if (this.state.imagePosted) {
       console.log("Redirecting to '/'");
-      redirect = <Redirect to="/" />;
+      redirect = <Redirect to="/posts" />;
     }
     return (
       <div className="row">
