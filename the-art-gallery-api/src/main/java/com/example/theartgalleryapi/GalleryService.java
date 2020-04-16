@@ -20,6 +20,11 @@ public class GalleryService {
 		return imageList;
 	}
 	
+	public Image getImage(String id){
+		 return imageRepository.findById(id).orElse(null);
+	
+	}
+	
 	public void addImage(Image image) {
 		imageRepository.save(image);
 	}
