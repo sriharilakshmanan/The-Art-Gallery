@@ -20,9 +20,11 @@ class PictureGrid extends Component {
 
   render() {
     let imageList = this.state.imageList.map((imageObject) => {
+      //console.log(imageObject);
       return (
         <PictureThumbnail
           key={imageObject.id}
+          id={imageObject.id}
           imageSource={imageObject.imageSource}
           imageCaption={imageObject.imageCaption}
         />

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = (props) => (
-  <header className="jumbotron" style={{ marginTop: "20%" }}>
+const LandingPage = (props) => (
+  <div className="jumbotron" style={{ marginTop: "20%" }}>
     <div className="container">
       <h1>The Art Gallery</h1>
       <p>
@@ -25,7 +25,7 @@ const Header = (props) => (
         View Posts
       </Link>
     </div>
-  </header>
+  </div>
 );
 
-export default Header;
+export default LandingPage;

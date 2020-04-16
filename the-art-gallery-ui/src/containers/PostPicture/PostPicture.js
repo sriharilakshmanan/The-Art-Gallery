@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Input from "../../components/UI/Input/Input";
 class PostPicture extends Component {
   state = {
-    imageObject: { id: "", imageSource: "", imageCaption: "" },
-    imagePosted: false
+    imageObject: { id: "", imageSource: "", imageCaption: "" }
   };
 
   postDataHandler = () => {
@@ -12,11 +12,12 @@ class PostPicture extends Component {
       .post("http://localhost:8082/images", this.state.imageObject)
       .then((response) => {
         console.log(response);
-        this.setState({ imagePosted: true });
+        this.props.history.push("/posts");
       });
   };
 
   onChangeHandler = (event, inputType) => {
+    console.log(event);
     let inputImage = { ...this.state.imageObject };
     inputImage[inputType] = event.target.value;
     if (inputType === "imageCaption") {
@@ -27,34 +28,23 @@ class PostPicture extends Component {
   };
 
   render() {
-    let redirect = null;
-    if (this.state.imagePosted) {
-      console.log("Redirecting to '/'");
-      redirect = <Redirect to="/posts" />;
-    }
+    console.log(this.props);
     return (
       <div className="row">
-        {redirect}
         <h1 style={{ textAlign: "center" }}>Post a Picture</h1>
         <div style={{ width: "30%", margin: "25px auto" }}>
-          <div className="form-group">
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Image Caption"
-              name="name"
-              onChange={(event) => this.onChangeHandler(event, "imageCaption")}
-            />
-          </div>
-          <div className="form-group">
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Image Source URL"
-              name="image"
-              onChange={(event) => this.onChangeHandler(event, "imageSource")}
-            />
-          </div>
+          <Input
+            type="text"
+            placeholder="Image Caption"
+            name="imageCaption"
+            onChange={(event) => this.onChangeHandler(event, "imageCaption")}
+          />
+          <Input
+            type="url"
+            placeholder="Image Source URL"
+            name="imageSource"
+            onChange={(event) => this.onChangeHandler(event, "imageSource")}
+          />
           <div className="form-group">
             <button
               className="btn btn-lg btn-primary btn-block"

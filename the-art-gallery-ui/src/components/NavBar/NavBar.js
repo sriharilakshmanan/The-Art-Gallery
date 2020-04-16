@@ -11,10 +11,7 @@ const NavBar = (props) => (
       <div className="collapse navbar-collapse">
         <ul className="nav navbar-nav navbar-right">
           <li>
-            <a href="/">Login</a>
-          </li>
-          <li>
-            <a href="/">Register</a>
+            <Link to="/login">Login/Register</Link>
           </li>
           <li>
             <a href="/">About</a>
