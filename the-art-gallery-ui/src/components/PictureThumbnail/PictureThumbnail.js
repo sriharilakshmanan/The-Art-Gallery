@@ -1,22 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Col, Button, Card, CardImg, CardBody, CardTitle } from 'reactstrap';
 
 const PictureThumbnail = (props) => (
-  <div className="col-md-4 col-sm-6">
-    <div className="thumbnail">
-      <img src={props.imageSource} alt={props.imageCaption} />
-      <div className="caption">
-        <h4>{props.imageCaption}</h4>
-      </div>
-      <Link
-        className="btn btn-primary btn-md"
-        style={{ marginBottom: "8px" }}
-        to={"/posts/" + props.id}
-      >
-        View Post
-      </Link>
-    </div>
-  </div>
+  <Col md='4' sm='6' style={{ marginTop: '20px' }}>
+    <Card>
+      <CardImg src={props.imageSource} alt={props.imageCaption} />
+      <CardBody>
+        <CardTitle>{props.imageCaption}</CardTitle>
+        <Link to={'/posts/' + props.id}>
+          <Button>View Post</Button>
+        </Link>
+      </CardBody>
+    </Card>
+  </Col>
 );
 
 export default PictureThumbnail;

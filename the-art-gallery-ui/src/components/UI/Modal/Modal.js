@@ -1,19 +1,26 @@
-import React from "react";
-import classes from "./Modal.module.css";
-import Auxiliary from "../../../hoc/Auxiliary";
-import Backdrop from "../Backdrop/Backdrop";
-const Modal = (props) => {
-  const styles = [classes.Modal];
+import React from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-  props.showModal
-    ? styles.push(classes.ShowModal)
-    : styles.push(classes.HideModal);
+const ModalExample = (props) => {
+  const { modal, setModal } = props;
+
+  const toggle = () => setModal(!modal);
+
   return (
-    <Auxiliary>
-      <Backdrop showBackdrop={props.showModal} hideBackdrop={props.hideModal} />
-      <div className={styles.join(" ")}>{props.children}</div>
-    </Auxiliary>
+    <Modal isOpen={modal} toggle={toggle}>
+      <ModalHeader toggle={toggle}>{props.title}</ModalHeader>
+      <ModalBody>{props.children}</ModalBody>
+      <ModalFooter>
+        {props.footer}
+        <Button color='success' onClick={toggle}>
+          Checkout
+        </Button>{' '}
+        <Button color='danger' onClick={toggle}>
+          Cancel
+        </Button>
+      </ModalFooter>
+    </Modal>
   );
 };
 
-export default Modal;
+export default ModalExample;

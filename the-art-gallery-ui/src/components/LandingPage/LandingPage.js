@@ -1,30 +1,28 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Jumbotron, Button } from 'reactstrap';
 
 const LandingPage = (props) => (
-  <div className="jumbotron" style={{ marginTop: "20%" }}>
-    <div className="container">
-      <h1>The Art Gallery</h1>
-      <p>
+  <div>
+    <Jumbotron style={{ marginTop: '20%' }}>
+      <h1 className='display-3'>The Art Gallery</h1>
+      <p className='lead'>
         A beautiful collection of artistic pictures from all over the world.
       </p>
-
-      <Link
-        to="/new-post"
-        className="btn btn-primary btn-lg"
-        style={{ display: "inline-block", marginRight: "10px" }}
-      >
-        Post a Picture
-      </Link>
-
-      <Link
-        to="/posts"
-        className="btn btn-primary btn-lg"
-        style={{ display: "inline-block", marginLeft: "10px" }}
-      >
-        View Posts
-      </Link>
-    </div>
+      <hr className='my-2' />
+      <p className='lead'>
+        <Link to='/new-post'>
+          <Button color='primary' size='lg'>
+            Post a Picture
+          </Button>
+        </Link>
+        <Link to='/posts'>
+          <Button color='success' size='lg' style={{ marginLeft: '20px' }}>
+            View Posts
+          </Button>
+        </Link>
+      </p>
+    </Jumbotron>
   </div>
 );
 

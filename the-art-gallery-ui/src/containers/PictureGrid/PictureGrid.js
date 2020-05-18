@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import PictureThumbnail from "../../components/PictureThumbnail/PictureThumbnail";
-import classes from "./PictureGrid.module.css";
-import axios from "axios";
+import React, { Component } from 'react';
+import PictureThumbnail from '../../components/PictureThumbnail/PictureThumbnail';
+import axios from 'axios';
+import { Row } from 'reactstrap';
 
 class PictureGrid extends Component {
   state = {
@@ -10,7 +10,7 @@ class PictureGrid extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:8082/images")
+      .get('http://localhost:8082/images')
       .then((response) => {
         this.setState({ imageList: response.data });
         console.log(response);
@@ -31,11 +31,7 @@ class PictureGrid extends Component {
       );
     });
 
-    return (
-      <div className={["row", "text-center", classes.PictureGrid].join(" ")}>
-        {imageList}
-      </div>
-    );
+    return <Row>{imageList}</Row>;
   }
 }
 
